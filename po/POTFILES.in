@@ -1,0 +1,6 @@
+src/ocpndebugger_pi.cpp
+src/ocpndebugger_pi.h
+src/ocpndebuggergui.cpp
+src/ocpndebuggergui.h
+src/ocpndebuggergui_impl.cpp
+src/ocpndebuggergui_impl.h
