@@ -42,7 +42,7 @@
 #define     MY_API_VERSION_MAJOR    1
 #define     MY_API_VERSION_MINOR    8
 
-#include "../../../include/ocpn_plugin.h"
+#include <opencpn/ocpn_plugin.h>
 
 #include "ocpndebuggergui_impl.h"
 
@@ -62,7 +62,7 @@ public:
 //    The required PlugIn Methods
       int Init(void);
       bool DeInit(void);
-      
+
       int GetAPIVersionMajor();
       int GetAPIVersionMinor();
       int GetPlugInVersionMajor();
