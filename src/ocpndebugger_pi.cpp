@@ -149,7 +149,7 @@ wxString ocpndebugger_pi::GetShortDescription()
 
 wxString ocpndebugger_pi::GetLongDescription()
 {
-      return _("Shows the OpenCPN streams from GPS and AIS ports that propagate through the plugin interface, NMEA Events and messages flowing through the polugin API");
+      return _("Shows the OpenCPN streams from GPS and AIS ports that propagate through the plugin interface, NMEA Events and messages flowing through the plugin API");
 }
 
 
