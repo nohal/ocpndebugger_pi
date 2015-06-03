@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-08 12:01-0600\n"
-"PO-Revision-Date: 2015-01-12 13:30-0500\n"
+"PO-Revision-Date: 2015-06-02 20:34-0400\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -13,6 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: opencpn\n"
+"X-Crowdin-Language: nl\n"
 "X-Crowdin-File: /plugins/ocpndebugger_pi/po/ocpndebugger_pi.pot\n"
 
 #: src/ocpndebugger_pi.cpp:84 src/ocpndebugger_pi.cpp:141
@@ -25,7 +26,7 @@ msgstr "OpenCPNDebugger PlugIn voor OpenCPN"
 
 #: src/ocpndebugger_pi.cpp:152
 msgid "Shows the OpenCPN streams from GPS and AIS ports that propagate through the plugin interface, NMEA Events and messages flowing through the plugin API"
-msgstr ""
+msgstr "Toont de gegevens van GPS en AIS poorten die door in de plugin ontvangen worden, en NMEA gebeurtenissen en berichten die binnenkomen via de plugin API."
 
 #: src/ocpndebuggergui.cpp:27 src/ocpndebuggergui.cpp:42
 #: src/ocpndebuggergui.cpp:57 src/ocpndebuggergui.cpp:72
