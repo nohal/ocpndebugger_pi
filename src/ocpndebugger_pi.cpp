@@ -60,7 +60,7 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
 //---------------------------------------------------------------------------------------------------------
 
 ocpndebugger_pi::ocpndebugger_pi(void *ppimgr)
-      :opencpn_plugin_18(ppimgr)
+      :opencpn_plugin_113(ppimgr)
 {
       // Create the PlugIn icons
       initialize_images();
@@ -80,9 +80,13 @@ int ocpndebugger_pi::Init(void)
       m_parent_window = GetOCPNCanvasWindow();
 
       //    This PlugIn needs a toolbar icon, so request its insertion
+#ifdef OCPNDEBUGGER_USE_SVG
+      m_leftclick_tool_id = InsertPlugInToolSVG( _T( "OpenCPNDebugger" ), _svg_ocpndebugger, _svg_ocpndebugger_rollover, _svg_ocpndebugger_toggled, wxITEM_CHECK, _( "OpenCPNDebugger" ), _T( "" ), NULL, OpenCPNDEBUGGER_TOOL_POSITION, 0, this);
+#else
       m_leftclick_tool_id  = InsertPlugInTool(_T(""), _img_ocpndebugger, _img_ocpndebugger, wxITEM_NORMAL,
             _("OpenCPNDebugger"), _T(""), NULL,
              OpenCPNDEBUGGER_TOOL_POSITION, 0, this);
+#endif
 
       m_pOpenCPNDebuggerDialog = NULL;
 

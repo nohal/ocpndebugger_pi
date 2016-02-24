@@ -39,7 +39,7 @@
 #include "version.h"
 
 #define     MY_API_VERSION_MAJOR    1
-#define     MY_API_VERSION_MINOR    8
+#define     MY_API_VERSION_MINOR    13
 
 #include "ocpn_plugin.h"
 
@@ -53,7 +53,7 @@ class OpenCPNDebuggerDlgImpl;
 
 #define OpenCPNDEBUGGER_TOOL_POSITION    -1          // Request default positioning of toolbar tool
 
-class ocpndebugger_pi : public opencpn_plugin_18
+class ocpndebugger_pi : public opencpn_plugin_113
 {
 public:
       ocpndebugger_pi(void *ppimgr);
