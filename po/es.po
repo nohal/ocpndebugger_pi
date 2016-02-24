@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: opencpn\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-08 12:01-0600\n"
-"PO-Revision-Date: 2015-04-21 14:53-0400\n"
+"PO-Revision-Date: 2016-02-18 16:08-0500\n"
 "Last-Translator: nohal <pavel@kalian.cz>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -18,42 +18,42 @@ msgstr ""
 
 #: src/ocpndebugger_pi.cpp:84 src/ocpndebugger_pi.cpp:141
 msgid "OpenCPNDebugger"
-msgstr ""
+msgstr "OpenCPN Debugger"
 
 #: src/ocpndebugger_pi.cpp:147
 msgid "OpenCPNDebugger PlugIn for OpenCPN"
-msgstr ""
+msgstr "Plugin OpenCPNDebugger para OpenCPN"
 
 #: src/ocpndebugger_pi.cpp:152
 msgid "Shows the OpenCPN streams from GPS and AIS ports that propagate through the plugin interface, NMEA Events and messages flowing through the plugin API"
-msgstr ""
+msgstr "Muestra los datos de los puertos GPS y AIS de OpenCPN que se propagan a través de la interfaz del plugin, eventos NMEA y mensajes que fluyen a través del plugin API"
 
 #: src/ocpndebuggergui.cpp:27 src/ocpndebuggergui.cpp:42
 #: src/ocpndebuggergui.cpp:57 src/ocpndebuggergui.cpp:72
 msgid "Pause"
-msgstr ""
+msgstr "Pausa"
 
 #: src/ocpndebuggergui.cpp:34
 msgid "NMEA"
-msgstr ""
+msgstr "NMEA"
 
 #: src/ocpndebuggergui.cpp:49
 msgid "AIS"
-msgstr ""
+msgstr "AIS"
 
 #: src/ocpndebuggergui.cpp:64
 msgid "NMEA Events"
-msgstr ""
+msgstr "Eventos NMEA"
 
 #: src/ocpndebuggergui.cpp:79
 msgid "Messages"
-msgstr ""
+msgstr "Mensajes"
 
 #: src/ocpndebuggergui.h:59
 msgid "OPENCPN Debugger"
-msgstr ""
+msgstr "OPENCPN Debugger"
 
 #: src/ocpndebuggergui_impl.h:38
 msgid "OpenCPN Debugger"
-msgstr ""
+msgstr "OpenCPN Debugger"
 
