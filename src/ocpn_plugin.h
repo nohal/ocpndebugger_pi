@@ -50,7 +50,7 @@ class wxGLContext;
 //    PlugIns conforming to API Version less then the most modern will also
 //    be correctly supported.
 #define API_VERSION_MAJOR           1
-#define API_VERSION_MINOR           13
+#define API_VERSION_MINOR           14
 
 //    Fwd Definitions
 class       wxFileConfig;
@@ -86,6 +86,7 @@ class       wxScrolledWindow;
 #define     WANTS_MOUSE_EVENTS                        0x00080000
 #define     WANTS_VECTOR_CHART_OBJECT_INFO            0x00100000
 #define     WANTS_KEYBOARD_EVENTS                     0x00200000
+#define     WANTS_SIGNALK_SENTENCES                   0x00400000
 
 //----------------------------------------------------------------------------------------------------------
 //    Some PlugIn API interface object class definitions
@@ -513,6 +514,27 @@ public:
     virtual bool KeyboardEventHook( wxKeyEvent &event );
     virtual void OnToolbarToolDownCallback(int id);
     virtual void OnToolbarToolUpCallback(int id);
+};
+
+/// Plug-in API 1.14, post OpenCPN 4.2
+class DECL_EXP opencpn_plugin_114 : public opencpn_plugin_113
+{
+public:
+    /**
+     *  Plug-in constructor
+     */
+    opencpn_plugin_114(void *pmgr);
+    /**
+     *  Plug-in destructor
+     */
+    virtual ~opencpn_plugin_114();
+    
+    /**
+     *  Injects a complete SignalK JSON sentence into a plug-in
+     *
+     *  @param sentence Single JSON object with one SignalK sentence
+     */
+    virtual void SetSignalKSentence(wxString &sentence);
 };
 
 //------------------------------------------------------------------

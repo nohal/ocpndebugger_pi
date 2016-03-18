@@ -60,7 +60,7 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
 //---------------------------------------------------------------------------------------------------------
 
 ocpndebugger_pi::ocpndebugger_pi(void *ppimgr)
-      :opencpn_plugin_113(ppimgr)
+      :opencpn_plugin_114(ppimgr)
 {
       // Create the PlugIn icons
       initialize_images();
@@ -95,7 +95,8 @@ int ocpndebugger_pi::Init(void)
               WANTS_NMEA_SENTENCES      |
               WANTS_NMEA_EVENTS         |
               WANTS_AIS_SENTENCES       |
-              WANTS_PLUGIN_MESSAGING
+              WANTS_PLUGIN_MESSAGING    |
+              WANTS_SIGNALK_SENTENCES
            );
 }
 
