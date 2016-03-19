@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version Apr 10 2012)
+// C++ code generated with wxFormBuilder (version Feb 16 2016)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO "NOT" EDIT THIS FILE!
@@ -51,6 +51,9 @@ class OpenCPNDebuggerDlg : public wxDialog
 		wxPanel* m_panelMessages;
 		wxTextCtrl* m_tcMessages;
 		wxToggleButton* m_tbMessagesPause;
+		wxPanel* m_panelSignalK;
+		wxTextCtrl* m_tcSignalK;
+		wxToggleButton* m_tbSignalKPause;
 		wxStdDialogButtonSizer* m_sdbSizer1;
 		wxButton* m_sdbSizer1OK;
 	
