@@ -28,39 +28,31 @@
 
 #include "ocpndebuggergui_impl.h"
 
-OpenCPNDebuggerDlgImpl::OpenCPNDebuggerDlgImpl( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : OpenCPNDebuggerDlg( parent, id, title, pos, size, style )
-{
+OpenCPNDebuggerDlgImpl::OpenCPNDebuggerDlgImpl(wxWindow *parent, wxWindowID id,
+                                               const wxString &title,
+                                               const wxPoint &pos,
+                                               const wxSize &size, long style)
+    : OpenCPNDebuggerDlg(parent, id, title, pos, size, style) {}
+
+void OpenCPNDebuggerDlgImpl::SetGPSMessage(wxString &msg) {
+    if (!m_tbGPSPause->GetValue()) m_tcGPS->AppendText(msg);
 }
 
-void OpenCPNDebuggerDlgImpl::SetGPSMessage(wxString &msg)
-{
-      if (!m_tbGPSPause->GetValue())
-            m_tcGPS->AppendText(msg);
+void OpenCPNDebuggerDlgImpl::SetAISMessage(wxString &msg) {
+    if (!m_tbAISPause->GetValue()) m_tcAIS->AppendText(msg);
 }
 
-void OpenCPNDebuggerDlgImpl::SetAISMessage(wxString &msg)
-{
-      if (!m_tbAISPause->GetValue())
-            m_tcAIS->AppendText(msg);
+void OpenCPNDebuggerDlgImpl::SetPluginMessage(wxString &id, wxString &msg) {
+    if (!m_tbMessagesPause->GetValue()) {
+        m_tcMessages->AppendText(wxString::Format(_T("%s : "), id.c_str()));
+        m_tcMessages->AppendText(msg);
+    }
 }
 
-void OpenCPNDebuggerDlgImpl::SetPluginMessage(wxString &id, wxString &msg)
-{
-      if (!m_tbMessagesPause->GetValue())
-      {
-            m_tcMessages->AppendText(wxString::Format(_T("%s : "), id.c_str()));
-            m_tcMessages->AppendText(msg);
-      }
+void OpenCPNDebuggerDlgImpl::SetNMEAEvent(wxString &msg) {
+    if (!m_tbNMEAEvtsPause->GetValue()) m_tcEvents->AppendText(msg);
 }
 
-void OpenCPNDebuggerDlgImpl::SetNMEAEvent(wxString &msg)
-{
-      if (!m_tbNMEAEvtsPause->GetValue())
-            m_tcEvents->AppendText(msg);
-}
-
-void OpenCPNDebuggerDlgImpl::SetSignalKMessage(wxString &msg)
-{
-    if (!m_tbSignalKPause->GetValue())
-        m_tcSignalK->AppendText(msg);
+void OpenCPNDebuggerDlgImpl::SetSignalKMessage(wxString &msg) {
+    if (!m_tbSignalKPause->GetValue()) m_tcSignalK->AppendText(msg);
 }

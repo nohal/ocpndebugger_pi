@@ -31,15 +31,15 @@
 
 #include "wx/wxprec.h"
 
-#ifndef  WX_PRECOMP
-  #include "wx/wx.h"
-  #include <wx/glcanvas.h>
-#endif //precompiled headers
+#ifndef WX_PRECOMP
+#include <wx/glcanvas.h>
+#include "wx/wx.h"
+#endif  // precompiled headers
 
 #include "version.h"
 
-#define     MY_API_VERSION_MAJOR    1
-#define     MY_API_VERSION_MINOR    14
+#define MY_API_VERSION_MAJOR 1
+#define MY_API_VERSION_MINOR 14
 
 #include "ocpn_plugin.h"
 
@@ -51,54 +51,54 @@ class OpenCPNDebuggerDlgImpl;
 //    The PlugIn Class Definition
 //----------------------------------------------------------------------------------------------------------
 
-#define OpenCPNDEBUGGER_TOOL_POSITION    -1          // Request default positioning of toolbar tool
+#define OpenCPNDEBUGGER_TOOL_POSITION \
+    -1  // Request default positioning of toolbar tool
 
-class ocpndebugger_pi : public opencpn_plugin_114
-{
-public:
-      ocpndebugger_pi(void *ppimgr);
+class ocpndebugger_pi : public opencpn_plugin_114 {
+   public:
+    ocpndebugger_pi(void *ppimgr);
 
-//    The required PlugIn Methods
-      int Init(void);
-      bool DeInit(void);
-      
-      int GetAPIVersionMajor();
-      int GetAPIVersionMinor();
-      int GetPlugInVersionMajor();
-      int GetPlugInVersionMinor();
-      wxBitmap *GetPlugInBitmap();
-      wxString GetCommonName();
-      wxString GetShortDescription();
-      wxString GetLongDescription();
+    //    The required PlugIn Methods
+    int Init(void);
+    bool DeInit(void);
 
-//    The required override PlugIn Methods
-      int GetToolbarToolCount(void);
+    int GetAPIVersionMajor();
+    int GetAPIVersionMinor();
+    int GetPlugInVersionMajor();
+    int GetPlugInVersionMinor();
+    wxBitmap *GetPlugInBitmap();
+    wxString GetCommonName();
+    wxString GetShortDescription();
+    wxString GetLongDescription();
 
-      void OnToolbarToolCallback(int id);
+    //    The required override PlugIn Methods
+    int GetToolbarToolCount(void);
 
-//    Optional plugin overrides
-      void SetColorScheme(PI_ColorScheme cs);
-      void SetNMEASentence(wxString &sentence);
-      void SetAISSentence(wxString &sentence);
-      void SetPluginMessage(wxString &message_id, wxString &message_body);
-      void SetPositionFixEx(PlugIn_Position_Fix_Ex &pfix);
-      void SetSignalKSentence(wxString &sentence);
+    void OnToolbarToolCallback(int id);
 
-//    Other public methods
-      void SetOpenCPNDebuggerDialogX    (int x){ m_ocpndebugger_dialog_x = x;};
-      void SetOpenCPNDebuggerDialogY    (int x){ m_ocpndebugger_dialog_y = x;}
+    //    Optional plugin overrides
+    void SetColorScheme(PI_ColorScheme cs);
+    void SetNMEASentence(wxString &sentence);
+    void SetAISSentence(wxString &sentence);
+    void SetPluginMessage(wxString &message_id, wxString &message_body);
+    void SetPositionFixEx(PlugIn_Position_Fix_Ex &pfix);
+    void SetSignalKSentence(wxString &sentence);
 
-      void OnOpenCPNDebuggerDialogClose();
+    //    Other public methods
+    void SetOpenCPNDebuggerDialogX(int x) { m_ocpndebugger_dialog_x = x; };
+    void SetOpenCPNDebuggerDialogY(int x) { m_ocpndebugger_dialog_y = x; }
 
-private:
-      wxWindow         *m_parent_window;
+    void OnOpenCPNDebuggerDialogClose();
 
-      OpenCPNDebuggerDlgImpl        *m_pOpenCPNDebuggerDialog;
+   private:
+    wxWindow *m_parent_window;
 
-      int               m_ocpndebugger_dialog_x, m_ocpndebugger_dialog_y;
-      int               m_display_width, m_display_height;
+    OpenCPNDebuggerDlgImpl *m_pOpenCPNDebuggerDialog;
 
-      int               m_leftclick_tool_id;
+    int m_ocpndebugger_dialog_x, m_ocpndebugger_dialog_y;
+    int m_display_width, m_display_height;
+
+    int m_leftclick_tool_id;
 };
 
 #endif
