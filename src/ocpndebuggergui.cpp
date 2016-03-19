@@ -91,7 +91,7 @@ OpenCPNDebuggerDlg::OpenCPNDebuggerDlg( wxWindow* parent, wxWindowID id, const w
 	m_panelSignalK->SetSizer( bSizerSignalK );
 	m_panelSignalK->Layout();
 	bSizerSignalK->Fit( m_panelSignalK );
-	m_notebook1->AddPage( m_panelSignalK, _("a page"), false );
+	m_notebook1->AddPage( m_panelSignalK, _("SignalK"), false );
 	
 	bSizer1->Add( m_notebook1, 1, wxEXPAND | wxALL, 5 );
 	

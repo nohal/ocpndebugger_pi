@@ -1233,7 +1233,7 @@
                         </object>
                         <object class="notebookpage" expanded="1">
                             <property name="bitmap"></property>
-                            <property name="label">a page</property>
+                            <property name="label">SignalK</property>
                             <property name="select">0</property>
                             <object class="wxPanel" expanded="1">
                                 <property name="BottomDockable">1</property>
