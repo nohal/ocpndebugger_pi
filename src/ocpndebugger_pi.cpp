@@ -145,8 +145,10 @@ void ocpndebugger_pi::OnToolbarToolCallback(int id) {
         m_pOpenCPNDebuggerDialog->Move(
             wxPoint(m_ocpndebugger_dialog_x, m_ocpndebugger_dialog_y));
     }
-
-    m_pOpenCPNDebuggerDialog->Show(!m_pOpenCPNDebuggerDialog->IsShown());
+    if( !m_pOpenCPNDebuggerDialog->IsShown() )
+        m_pOpenCPNDebuggerDialog->Show();
+    else
+        m_pOpenCPNDebuggerDialog->Hide();
 }
 
 void ocpndebugger_pi::SetNMEASentence(wxString &sentence) {
