@@ -210,3 +210,9 @@ void ocpndebugger_pi::SetPositionFixEx(PlugIn_Position_Fix_Ex &pfix)
             m_pOpenCPNDebuggerDialog->SetNMEAEvent(msg);
       }
 }
+
+void ocpndebugger_pi::SetSignalKSentence(wxString &sentence)
+{
+    if(NULL != m_pOpenCPNDebuggerDialog)
+            m_pOpenCPNDebuggerDialog->SetSignalKMessage(sentence);
+}

@@ -82,6 +82,7 @@ public:
       void SetAISSentence(wxString &sentence);
       void SetPluginMessage(wxString &message_id, wxString &message_body);
       void SetPositionFixEx(PlugIn_Position_Fix_Ex &pfix);
+      void SetSignalKSentence(wxString &sentence);
 
 //    Other public methods
       void SetOpenCPNDebuggerDialogX    (int x){ m_ocpndebugger_dialog_x = x;};

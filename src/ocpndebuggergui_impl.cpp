@@ -58,3 +58,9 @@ void OpenCPNDebuggerDlgImpl::SetNMEAEvent(wxString &msg)
       if (!m_tbNMEAEvtsPause->GetValue())
             m_tcEvents->AppendText(msg);
 }
+
+void OpenCPNDebuggerDlgImpl::SetSignalKMessage(wxString &msg)
+{
+    if (!m_tbSignalKPause->GetValue())
+        m_tcSignalK->AppendText(msg);
+}

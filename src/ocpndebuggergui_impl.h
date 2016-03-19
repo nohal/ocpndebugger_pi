@@ -40,6 +40,7 @@ public:
       void SetNMEAEvent(wxString &msg);
       void SetAISMessage(wxString &msg);
       void SetPluginMessage(wxString &id, wxString &msg);
+      void SetSignalKMessage(wxString &msg);
 };
 
 #endif
