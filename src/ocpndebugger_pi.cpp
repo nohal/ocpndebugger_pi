@@ -205,7 +205,7 @@ void ocpndebugger_pi::SetPositionFixEx(PlugIn_Position_Fix_Ex &pfix)
 {
       if(NULL != m_pOpenCPNDebuggerDialog)
       {
-            wxString msg = wxString::Format(_T("Cog: %f, Hdm: %f, Hdt: %f, Lat: %f, Lon: %f, Sog: %f, Var: %f, nSats: %d, Fixtime: %d\n"), pfix.Cog, pfix.Hdm, pfix.Hdt, pfix.Lat, pfix.Lon, pfix.Sog, pfix.Var, pfix.nSats, pfix.FixTime);
+            wxString msg = wxString::Format(_T("Cog: %f, Hdm: %f, Hdt: %f, Lat: %f, Lon: %f, Sog: %f, Var: %f, nSats: %d, Fixtime: %ld\n"), pfix.Cog, pfix.Hdm, pfix.Hdt, pfix.Lat, pfix.Lon, pfix.Sog, pfix.Var, pfix.nSats, pfix.FixTime);
             m_pOpenCPNDebuggerDialog->SetNMEAEvent(msg);
       }
 }
