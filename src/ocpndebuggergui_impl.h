@@ -37,7 +37,7 @@
 class OpenCPNDebuggerDlgImpl : public OpenCPNDebuggerDlg
 {
 public:
-      OpenCPNDebuggerDlgImpl( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("OpenCPN Debugger"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 701,370 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+      OpenCPNDebuggerDlgImpl( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("OpenCPN Debugger"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 701,370 ), long style = wxCAPTION|wxCLOSE_BOX|wxDEFAULT_FRAME_STYLE|wxMAXIMIZE_BOX|wxRESIZE_BORDER|wxSTAY_ON_TOP|wxTAB_TRAVERSAL ); 
       void SetGPSMessage(wxString &msg);
       void SetNMEAEvent(wxString &msg);
       void SetAISMessage(wxString &msg);
