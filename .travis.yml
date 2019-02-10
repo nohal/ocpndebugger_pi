@@ -41,7 +41,6 @@ addons:
 before_deploy:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then export RELEASE_PKG_FILE=$(ls *.pkg); fi
 deploy:
-  matrix:
   - provider: releases
     api_key:
       secure: qnlIiYkqf8+zluKup/skVFO3aKWr94QrNSJc1e4kTnLbDfy1STpdSZRxn3qriZEE9mbqA34QXAM2KCxQkhe5BEaOM5adGTtmLRn8ha6FQylrDTUNMxvvZH4IMAsP0abQEq5pnp0fd3ZPkGaU5FspKocgdo+DdqdGEa7zxceZsYw=
