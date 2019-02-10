@@ -95,8 +95,7 @@ int ocpndebugger_pi::Init(void)
               WANTS_NMEA_SENTENCES      |
               WANTS_NMEA_EVENTS         |
               WANTS_AIS_SENTENCES       |
-              WANTS_PLUGIN_MESSAGING    |
-              WANTS_SIGNALK_SENTENCES
+              WANTS_PLUGIN_MESSAGING
            );
 }
 
