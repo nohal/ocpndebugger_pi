@@ -59,7 +59,7 @@ deploy:
       all_branches: true
       condition: "$TRAVIS_OS_NAME = linux"
       repo: nohal/ocpndebugger_pi
-  oauth_token:
-    secure: k+beTbeD99wWGixHxrT10sVCMCPuT2XuNtoJg+Ijl2FDwaPWQqeTbz8Eh8+xNpf8D5k6u/d0OHUdM+yOjfvCn55kNNUR8eGRS9JjzllgzCaJ50lallPAxImesTaUjXHyoHIkLeKw3sTvchA1M1aCIa4HTxQOTi1BBSb0XRDcii8=
-  oauth_token_secret:
-    secure: G6BtpqalJi6ZPlR2lt0EeoqLsk8we3MPUQhmJivurimJMtX8na9VMw4RIUyHMYzMxwGheQ7qlcBRgARSB7TZxvab+ZqDyLNFH60WY5QynlnSmTpY8tpGmkb4bZpksT1bsD91qdOU4gIuRQbXR7Nk3KJ9TEO/lFLRcaO+9LBTtvk=
+    oauth_token:
+      secure: k+beTbeD99wWGixHxrT10sVCMCPuT2XuNtoJg+Ijl2FDwaPWQqeTbz8Eh8+xNpf8D5k6u/d0OHUdM+yOjfvCn55kNNUR8eGRS9JjzllgzCaJ50lallPAxImesTaUjXHyoHIkLeKw3sTvchA1M1aCIa4HTxQOTi1BBSb0XRDcii8=
+    oauth_token_secret:
+      secure: G6BtpqalJi6ZPlR2lt0EeoqLsk8we3MPUQhmJivurimJMtX8na9VMw4RIUyHMYzMxwGheQ7qlcBRgARSB7TZxvab+ZqDyLNFH60WY5QynlnSmTpY8tpGmkb4bZpksT1bsD91qdOU4gIuRQbXR7Nk3KJ9TEO/lFLRcaO+9LBTtvk=
