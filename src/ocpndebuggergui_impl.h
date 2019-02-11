@@ -29,17 +29,18 @@
 #ifndef _OpenCPNDEBUGGERGUI_IMPL_H_
 #define _OpenCPNDEBUGGERGUI_IMPL_H_
 
-#include "ocpndebuggergui.h"
 #include "ocpndebugger_pi.h"
+#include "ocpndebuggergui.h"
 
-class OpenCPNDebuggerDlgImpl : public OpenCPNDebuggerDlg
-{
-public:
-      OpenCPNDebuggerDlgImpl( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("OpenCPN Debugger"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 701,370 ), long style = wxDEFAULT_DIALOG_STYLE ); 
-      void SetGPSMessage(wxString &msg);
-      void SetNMEAEvent(wxString &msg);
-      void SetAISMessage(wxString &msg);
-      void SetPluginMessage(wxString &id, wxString &msg);
+class OpenCPNDebuggerDlgImpl : public OpenCPNDebuggerDlg {
+   public:
+    OpenCPNDebuggerDlgImpl(wxWindow *parent, wxWindowID id = wxID_ANY, const wxString &title = _("OpenCPN Debugger"),
+                           const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxSize(701, 370),
+                           long style = wxDEFAULT_DIALOG_STYLE);
+    void SetGPSMessage(wxString &msg);
+    void SetNMEAEvent(wxString &msg);
+    void SetAISMessage(wxString &msg);
+    void SetPluginMessage(wxString &id, wxString &msg);
 };
 
 #endif

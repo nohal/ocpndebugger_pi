@@ -27,23 +27,17 @@
  */
 #include "wx/wxprec.h"
 
-#ifndef  WX_PRECOMP
-  #include "wx/wx.h"
-#endif //precompiled headers
+#ifndef WX_PRECOMP
+#include "wx/wx.h"
+#endif  // precompiled headers
 
 #include "ocpndebugger_pi.h"
 
 // the class factories, used to create and destroy instances of the PlugIn
 
-extern "C" DECL_EXP opencpn_plugin* create_pi(void *ppimgr)
-{
-    return new ocpndebugger_pi(ppimgr);
-}
+extern "C" DECL_EXP opencpn_plugin *create_pi(void *ppimgr) { return new ocpndebugger_pi(ppimgr); }
 
-extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
-{
-    delete p;
-}
+extern "C" DECL_EXP void destroy_pi(opencpn_plugin *p) { delete p; }
 
 //---------------------------------------------------------------------------------------------------------
 //
@@ -59,153 +53,107 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
 //
 //---------------------------------------------------------------------------------------------------------
 
-ocpndebugger_pi::ocpndebugger_pi(void *ppimgr)
-      :opencpn_plugin_114(ppimgr)
-{
-      // Create the PlugIn icons
-      initialize_images();
+ocpndebugger_pi::ocpndebugger_pi(void *ppimgr) : opencpn_plugin_114(ppimgr) {
+    // Create the PlugIn icons
+    initialize_images();
 }
 
-int ocpndebugger_pi::Init(void)
-{
-      AddLocaleCatalog( _T("opencpn-ocpndebugger_pi") );
+int ocpndebugger_pi::Init(void) {
+    AddLocaleCatalog(_T("opencpn-ocpndebugger_pi"));
 
-      // Set some default private member parameters
-      m_ocpndebugger_dialog_x = 0;
-      m_ocpndebugger_dialog_y = 0;
+    // Set some default private member parameters
+    m_ocpndebugger_dialog_x = 0;
+    m_ocpndebugger_dialog_y = 0;
 
-      ::wxDisplaySize(&m_display_width, &m_display_height);
+    ::wxDisplaySize(&m_display_width, &m_display_height);
 
-      //    Get a pointer to the opencpn display canvas, to use as a parent for the POI Manager dialog
-      m_parent_window = GetOCPNCanvasWindow();
+    //    Get a pointer to the opencpn display canvas, to use as a parent for the POI Manager dialog
+    m_parent_window = GetOCPNCanvasWindow();
 
-      //    This PlugIn needs a toolbar icon, so request its insertion
+    //    This PlugIn needs a toolbar icon, so request its insertion
 #ifdef OCPNDEBUGGER_USE_SVG
-      m_leftclick_tool_id = InsertPlugInToolSVG( _T( "OpenCPNDebugger" ), _svg_ocpndebugger, _svg_ocpndebugger_rollover, _svg_ocpndebugger_toggled, wxITEM_CHECK, _( "OpenCPNDebugger" ), _T( "" ), NULL, OpenCPNDEBUGGER_TOOL_POSITION, 0, this);
+    m_leftclick_tool_id =
+        InsertPlugInToolSVG(_T( "OpenCPNDebugger" ), _svg_ocpndebugger, _svg_ocpndebugger_rollover, _svg_ocpndebugger_toggled,
+                            wxITEM_CHECK, _("OpenCPNDebugger"), _T( "" ), NULL, OpenCPNDEBUGGER_TOOL_POSITION, 0, this);
 #else
-      m_leftclick_tool_id  = InsertPlugInTool(_T(""), _img_ocpndebugger, _img_ocpndebugger, wxITEM_NORMAL,
-            _("OpenCPNDebugger"), _T(""), NULL,
-             OpenCPNDEBUGGER_TOOL_POSITION, 0, this);
+    m_leftclick_tool_id = InsertPlugInTool(_T(""), _img_ocpndebugger, _img_ocpndebugger, wxITEM_NORMAL, _("OpenCPNDebugger"),
+                                           _T(""), NULL, OpenCPNDEBUGGER_TOOL_POSITION, 0, this);
 #endif
 
-      m_pOpenCPNDebuggerDialog = NULL;
+    m_pOpenCPNDebuggerDialog = NULL;
 
-      return (WANTS_TOOLBAR_CALLBACK    |
-              INSTALLS_TOOLBAR_TOOL     |
-              WANTS_NMEA_SENTENCES      |
-              WANTS_NMEA_EVENTS         |
-              WANTS_AIS_SENTENCES       |
-              WANTS_PLUGIN_MESSAGING
-           );
+    return (WANTS_TOOLBAR_CALLBACK | INSTALLS_TOOLBAR_TOOL | WANTS_NMEA_SENTENCES | WANTS_NMEA_EVENTS | WANTS_AIS_SENTENCES |
+            WANTS_PLUGIN_MESSAGING);
 }
 
-bool ocpndebugger_pi::DeInit(void)
-{
-      //    Record the dialog position
-      if (NULL != m_pOpenCPNDebuggerDialog)
-      {
-            wxPoint p = m_pOpenCPNDebuggerDialog->GetPosition();
-            SetOpenCPNDebuggerDialogX(p.x);
-            SetOpenCPNDebuggerDialogY(p.y);
+bool ocpndebugger_pi::DeInit(void) {
+    //    Record the dialog position
+    if (NULL != m_pOpenCPNDebuggerDialog) {
+        wxPoint p = m_pOpenCPNDebuggerDialog->GetPosition();
+        SetOpenCPNDebuggerDialogX(p.x);
+        SetOpenCPNDebuggerDialogY(p.y);
 
-            m_pOpenCPNDebuggerDialog->Close();
-            delete m_pOpenCPNDebuggerDialog;
-            m_pOpenCPNDebuggerDialog = NULL;
-      }
-      return true;
+        m_pOpenCPNDebuggerDialog->Close();
+        delete m_pOpenCPNDebuggerDialog;
+        m_pOpenCPNDebuggerDialog = NULL;
+    }
+    return true;
 }
 
-int ocpndebugger_pi::GetAPIVersionMajor()
-{
-      return MY_API_VERSION_MAJOR;
+int ocpndebugger_pi::GetAPIVersionMajor() { return MY_API_VERSION_MAJOR; }
+
+int ocpndebugger_pi::GetAPIVersionMinor() { return MY_API_VERSION_MINOR; }
+
+int ocpndebugger_pi::GetPlugInVersionMajor() { return PLUGIN_VERSION_MAJOR; }
+
+int ocpndebugger_pi::GetPlugInVersionMinor() { return PLUGIN_VERSION_MINOR; }
+
+wxBitmap *ocpndebugger_pi::GetPlugInBitmap() { return _img_ocpndebugger_pi; }
+
+wxString ocpndebugger_pi::GetCommonName() { return _("OpenCPNDebugger"); }
+
+wxString ocpndebugger_pi::GetShortDescription() { return _("OpenCPNDebugger PlugIn for OpenCPN"); }
+
+wxString ocpndebugger_pi::GetLongDescription() {
+    return _(
+        "Shows the OpenCPN streams from GPS and AIS ports that propagate through the plugin interface, NMEA Events and messages "
+        "flowing through the plugin API");
 }
 
-int ocpndebugger_pi::GetAPIVersionMinor()
-{
-      return MY_API_VERSION_MINOR;
+int ocpndebugger_pi::GetToolbarToolCount(void) { return 1; }
+
+void ocpndebugger_pi::SetColorScheme(PI_ColorScheme cs) {
+    if (NULL == m_pOpenCPNDebuggerDialog) return;
+
+    DimeWindow(m_pOpenCPNDebuggerDialog);
 }
 
-int ocpndebugger_pi::GetPlugInVersionMajor()
-{
-      return PLUGIN_VERSION_MAJOR;
+void ocpndebugger_pi::OnToolbarToolCallback(int id) {
+    if (NULL == m_pOpenCPNDebuggerDialog) {
+        m_pOpenCPNDebuggerDialog = new OpenCPNDebuggerDlgImpl(m_parent_window);
+        m_pOpenCPNDebuggerDialog->Move(wxPoint(m_ocpndebugger_dialog_x, m_ocpndebugger_dialog_y));
+    }
+
+    m_pOpenCPNDebuggerDialog->Show(!m_pOpenCPNDebuggerDialog->IsShown());
 }
 
-int ocpndebugger_pi::GetPlugInVersionMinor()
-{
-      return PLUGIN_VERSION_MINOR;
+void ocpndebugger_pi::SetNMEASentence(wxString &sentence) {
+    if (NULL != m_pOpenCPNDebuggerDialog) m_pOpenCPNDebuggerDialog->SetGPSMessage(sentence);
 }
 
-wxBitmap *ocpndebugger_pi::GetPlugInBitmap()
-{
-      return _img_ocpndebugger_pi;
+void ocpndebugger_pi::SetAISSentence(wxString &sentence) {
+    if (NULL != m_pOpenCPNDebuggerDialog) m_pOpenCPNDebuggerDialog->SetAISMessage(sentence);
 }
 
-wxString ocpndebugger_pi::GetCommonName()
-{
-      return _("OpenCPNDebugger");
+void ocpndebugger_pi::SetPluginMessage(wxString &message_id, wxString &message_body) {
+    if (NULL != m_pOpenCPNDebuggerDialog) m_pOpenCPNDebuggerDialog->SetPluginMessage(message_id, message_body);
 }
 
-
-wxString ocpndebugger_pi::GetShortDescription()
-{
-      return _("OpenCPNDebugger PlugIn for OpenCPN");
-}
-
-wxString ocpndebugger_pi::GetLongDescription()
-{
-      return _("Shows the OpenCPN streams from GPS and AIS ports that propagate through the plugin interface, NMEA Events and messages flowing through the plugin API");
-}
-
-
-int ocpndebugger_pi::GetToolbarToolCount(void)
-{
-      return 1;
-}
-
-void ocpndebugger_pi::SetColorScheme(PI_ColorScheme cs)
-{
-      if (NULL == m_pOpenCPNDebuggerDialog)
-            return;
-
-      DimeWindow(m_pOpenCPNDebuggerDialog);
-}
-
-
-void ocpndebugger_pi::OnToolbarToolCallback(int id)
-{
-      if(NULL == m_pOpenCPNDebuggerDialog)
-      {
-            m_pOpenCPNDebuggerDialog = new OpenCPNDebuggerDlgImpl(m_parent_window);
-            m_pOpenCPNDebuggerDialog->Move(wxPoint(m_ocpndebugger_dialog_x, m_ocpndebugger_dialog_y));
-      }
-
-      m_pOpenCPNDebuggerDialog->Show(!m_pOpenCPNDebuggerDialog->IsShown());
-}
-
-
-void ocpndebugger_pi::SetNMEASentence(wxString &sentence)
-{
-      if(NULL != m_pOpenCPNDebuggerDialog)
-            m_pOpenCPNDebuggerDialog->SetGPSMessage(sentence);
-}
-
-void ocpndebugger_pi::SetAISSentence(wxString &sentence)
-{
-      if(NULL != m_pOpenCPNDebuggerDialog)
-            m_pOpenCPNDebuggerDialog->SetAISMessage(sentence);
-}
-
-void ocpndebugger_pi::SetPluginMessage(wxString &message_id, wxString &message_body)
-{
-      if(NULL != m_pOpenCPNDebuggerDialog)
-            m_pOpenCPNDebuggerDialog->SetPluginMessage(message_id, message_body);
-}
-
-void ocpndebugger_pi::SetPositionFixEx(PlugIn_Position_Fix_Ex &pfix)
-{
-      if(NULL != m_pOpenCPNDebuggerDialog)
-      {
-            wxString msg = wxString::Format(_T("Cog: %f, Hdm: %f, Hdt: %f, Lat: %f, Lon: %f, Sog: %f, Var: %f, nSats: %d, Fixtime: %d\n"), pfix.Cog, pfix.Hdm, pfix.Hdt, pfix.Lat, pfix.Lon, pfix.Sog, pfix.Var, pfix.nSats, pfix.FixTime);
-            m_pOpenCPNDebuggerDialog->SetNMEAEvent(msg);
-      }
+void ocpndebugger_pi::SetPositionFixEx(PlugIn_Position_Fix_Ex &pfix) {
+    if (NULL != m_pOpenCPNDebuggerDialog) {
+        wxString msg = wxString::Format(
+            _T("Cog: %f, Hdm: %f, Hdt: %f, Lat: %f, Lon: %f, Sog: %f, Var: %f, nSats: %d, Fixtime: %s\n"), pfix.Cog, pfix.Hdm,
+            pfix.Hdt, pfix.Lat, pfix.Lon, pfix.Sog, pfix.Var, pfix.nSats, wxDateTime(pfix.FixTime).FormatISOCombined().c_str());
+        m_pOpenCPNDebuggerDialog->SetNMEAEvent(msg);
+    }
 }
