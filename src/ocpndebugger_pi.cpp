@@ -58,7 +58,7 @@ ocpndebugger_pi::ocpndebugger_pi(void *ppimgr) : opencpn_plugin_114(ppimgr) {
     initialize_images();
 }
 
-int ocpndebugger_pi::Init(void) {
+int ocpndebugger_pi::Init() {
     AddLocaleCatalog(_T("opencpn-ocpndebugger_pi"));
 
     // Set some default private member parameters
@@ -86,7 +86,7 @@ int ocpndebugger_pi::Init(void) {
             WANTS_PLUGIN_MESSAGING);
 }
 
-bool ocpndebugger_pi::DeInit(void) {
+bool ocpndebugger_pi::DeInit() {
     //    Record the dialog position
     if (NULL != m_pOpenCPNDebuggerDialog) {
         wxPoint p = m_pOpenCPNDebuggerDialog->GetPosition();
@@ -120,7 +120,7 @@ wxString ocpndebugger_pi::GetLongDescription() {
         "flowing through the plugin API");
 }
 
-int ocpndebugger_pi::GetToolbarToolCount(void) { return 1; }
+int ocpndebugger_pi::GetToolbarToolCount() { return 1; }
 
 void ocpndebugger_pi::SetColorScheme(PI_ColorScheme cs) {
     if (NULL == m_pOpenCPNDebuggerDialog) return;

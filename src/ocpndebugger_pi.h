@@ -58,8 +58,8 @@ class ocpndebugger_pi : public opencpn_plugin_114 {
     ocpndebugger_pi(void *ppimgr);
 
     //    The required PlugIn Methods
-    int Init(void);
-    bool DeInit(void);
+    int Init();
+    bool DeInit();
 
     int GetAPIVersionMajor();
     int GetAPIVersionMinor();
@@ -71,7 +71,7 @@ class ocpndebugger_pi : public opencpn_plugin_114 {
     wxString GetLongDescription();
 
     //    The required override PlugIn Methods
-    int GetToolbarToolCount(void);
+    int GetToolbarToolCount();
 
     void OnToolbarToolCallback(int id);
 
