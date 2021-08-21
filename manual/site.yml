@@ -1,7 +1,7 @@
 site:
   title: Debugger Plugin Manual
   url:  https://nowhere.net
-  start_page: debugger:ROOT:debugger.adoc
+  start_page: debugger:ROOT:index.adoc
 
 content:
   sources:
