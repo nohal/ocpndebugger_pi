@@ -28,9 +28,7 @@
 
 #include "ocpndebuggergui_impl.h"
 
-OpenCPNDebuggerDlgImpl::OpenCPNDebuggerDlgImpl(wxWindow *parent, wxWindowID id,
-                                               const wxString &title,
-                                               const wxPoint &pos,
+OpenCPNDebuggerDlgImpl::OpenCPNDebuggerDlgImpl(wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint &pos,
                                                const wxSize &size, long style)
     : OpenCPNDebuggerDlg(parent, id, title, pos, size, style) {}
 
@@ -51,8 +49,4 @@ void OpenCPNDebuggerDlgImpl::SetPluginMessage(wxString &id, wxString &msg) {
 
 void OpenCPNDebuggerDlgImpl::SetNMEAEvent(wxString &msg) {
     if (!m_tbNMEAEvtsPause->GetValue()) m_tcEvents->AppendText(msg);
-}
-
-void OpenCPNDebuggerDlgImpl::SetSignalKMessage(wxString &msg) {
-    if (!m_tbSignalKPause->GetValue()) m_tcSignalK->AppendText(msg);
 }

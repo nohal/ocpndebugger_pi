@@ -51,16 +51,15 @@ class OpenCPNDebuggerDlgImpl;
 //    The PlugIn Class Definition
 //----------------------------------------------------------------------------------------------------------
 
-#define OpenCPNDEBUGGER_TOOL_POSITION \
-    -1  // Request default positioning of toolbar tool
+#define OpenCPNDEBUGGER_TOOL_POSITION -1  // Request default positioning of toolbar tool
 
 class ocpndebugger_pi : public opencpn_plugin_114 {
    public:
     ocpndebugger_pi(void *ppimgr);
 
     //    The required PlugIn Methods
-    int Init(void);
-    bool DeInit(void);
+    int Init();
+    bool DeInit();
 
     int GetAPIVersionMajor();
     int GetAPIVersionMinor();
@@ -72,7 +71,7 @@ class ocpndebugger_pi : public opencpn_plugin_114 {
     wxString GetLongDescription();
 
     //    The required override PlugIn Methods
-    int GetToolbarToolCount(void);
+    int GetToolbarToolCount();
 
     void OnToolbarToolCallback(int id);
 
@@ -82,7 +81,6 @@ class ocpndebugger_pi : public opencpn_plugin_114 {
     void SetAISSentence(wxString &sentence);
     void SetPluginMessage(wxString &message_id, wxString &message_body);
     void SetPositionFixEx(PlugIn_Position_Fix_Ex &pfix);
-    void SetSignalKSentence(wxString &sentence);
 
     //    Other public methods
     void SetOpenCPNDebuggerDialogX(int x) { m_ocpndebugger_dialog_x = x; };

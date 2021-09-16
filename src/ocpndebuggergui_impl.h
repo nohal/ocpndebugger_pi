@@ -34,20 +34,15 @@
 
 class OpenCPNDebuggerDlgImpl : public OpenCPNDebuggerDlg {
    public:
-    OpenCPNDebuggerDlgImpl(wxWindow *parent, wxWindowID id = wxID_ANY,
-                           const wxString &title = _("OpenCPN Debugger"),
-                           const wxPoint &pos = wxDefaultPosition,
-                           const wxSize &size = wxSize(701, 370),
-#ifdef __WXMAC__
-                           long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER|wxSTAY_ON_TOP);
-#else
-                           long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER);
-#endif
+
+    OpenCPNDebuggerDlgImpl(wxWindow *parent, wxWindowID id = wxID_ANY, const wxString &title = _("OpenCPN Debugger"),
+                           const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxSize(701, 370),
+                           long style = wxDEFAULT_DIALOG_STYLE);
     void SetGPSMessage(wxString &msg);
     void SetNMEAEvent(wxString &msg);
     void SetAISMessage(wxString &msg);
     void SetPluginMessage(wxString &id, wxString &msg);
-    void SetSignalKMessage(wxString &msg);
+
 };
 
 #endif
