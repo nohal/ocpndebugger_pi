@@ -1,5 +1,5 @@
 site:
-  title: Debugger Plugin Manual
+  title: Debugger
   url:  https://nowhere.net
   start_page: debugger:ROOT:index.adoc
 
